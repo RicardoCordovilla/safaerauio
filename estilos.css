@@ -47,6 +47,13 @@ body{
     padding-right: 1rem;
 }
 
+/* ******| pagina confirmacion****** */
+.img_confirmacion{
+    width: 100%;
+    margin: auto;
+}
+
+
 p{
     padding: 1.5rem;
     text-align: center;
