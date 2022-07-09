@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="logos/isotipo_safaera.png" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <figure class="figura">
@@ -16,25 +18,211 @@
     </header>
     <main>
 
+        <section>
+            <h1>la mejor discoteca de Quito safaera</h1>
+        </section>
 
         <section class="descripcion">
             <p>Vive la mejor experiencia de entretenimiento en Quito</p>
             <p>Av. República y Mañosca, Plaza Mayor</p>
             <p><strong>SEGUNDO PISO</strong></p>
         </section>
+
+        <!-- *************** RESERVAS  ***************** -->
         <section class="reservas">
-            <script type="text/javascript" src="https://form.jotform.com/jsform/221714729004652"></script>
-            <!-- <div class="pie_form"></div> -->
+
+            <!-- <form class="form" name="reserva" method="post" data-netlify="true"> -->
+            <form class="form" action="https://formspree.io/f/mqknopbg" method="POST">
+                <div class="title">Reserva</div>
+
+                <div class="input-container ic1">
+                    <input id="firstname" class="input" type="text" placeholder=" " name="Nombre" required />
+                    <div class="cut"></div>
+                    <label for="firstname" class="placeholder">Nombre</label>
+                </div>
+
+
+
+
+                <div class="input-container ic2">
+                    <input id="cedula" class="input" type="number" placeholder=" " name="Cedula" required />
+                    <div class="cut"></div>
+                    <label for="cedula" class="placeholder">Cédula</label>
+                </div>
+
+
+
+                <div class="section_cumple">
+                    <h4>¿Hay algún cumpleañero?</h4>
+                    <input type="checkbox" id="cumple" class="hidebx" name="Cumple" value="SI" />
+                    <label for="cumple" class="lbl-check">
+                        <div class="display-box">
+                            <span class="tiempo">SI</span>
+                        </div>
+                    </label>
+                </div>
+
+
+
+                <div class="input-container ic2">
+                    <input id="celular" class="input" type="tel" placeholder=" " name="Celular" required />
+                    <div class="cut cut-short"></div>
+                    <label for="celular" class="placeholder">Celular</label>
+                </div>
+
+                <div class="input-container ic2">
+                    <input id="personas" class="input" type="number" placeholder=" " name="Personas" required />
+                    <div class="cut cut-short"></div>
+                    <label for="personas" class="placeholder">¿Cuántas personas vienen?</label>
+                </div>
+
+                <!-- ****** FECHA  *********** -->
+                <div class="input-container ic2">
+                    <input id="fecha" class="input" type="date" placeholder=" " name="Fecha" required />
+                    <div class="cut cut-short"></div>
+                    <label for="fecha" class="placeholder">Agenda</label>
+                </div>
+
+                <!-- ************************* -->
+                <!-- ****** HORAS  *********** -->
+
+
+
+                <h4>Hora</h4>
+                <div class="container">
+
+
+                    <!-- 7:00 -->
+                    <input type="radio" name="hora" id="hora1" class="hidebx" value="7:00" checked />
+                    <label for="hora1" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">7:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 7:30 -->
+                    <input type="radio" name="hora" id="hora2" class="hidebx" value="7:30" />
+                    <label for="hora2" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">7:30</span>
+                        </div>
+                    </label>
+
+                    <!-- 8:00 -->
+                    <input type="radio" name="hora" id="hora3" class="hidebx" value="8:00" />
+                    <label for="hora3" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">8:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 8:30 -->
+                    <input type="radio" name="hora" id="hora4" class="hidebx" value="8:30" />
+                    <label for="hora4" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">8:30</span>
+                        </div>
+                    </label>
+
+
+                    <!-- 9:00 -->
+                    <input type="radio" name="hora" id="hora5" class="hidebx" value="9:00" />
+                    <label for="hora5" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">9:00</span>
+                        </div>
+                    </label>
+
+
+                    <!-- 9:30 -->
+                    <input type="radio" name="hora" id="hora6" class="hidebx" value="9:30" />
+                    <label for="hora6" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">9:30</span>
+                        </div>
+                    </label>
+
+                    <!-- 10:00 -->
+                    <input type="radio" name="hora" id="hora7" class="hidebx" value="10:00" />
+                    <label for="hora7" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">10:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 10:30 -->
+                    <input type="radio" name="hora" id="hora8" class="hidebx" value="10:30" />
+                    <label for="hora8" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">10:30</span>
+                        </div>
+                    </label>
+
+                    <!-- 11:00 -->
+                    <input type="radio" name="hora" id="hora9" class="hidebx" value="11:00" />
+                    <label for="hora9" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">11:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 11:30 -->
+                    <input type="radio" name="hora" id="hora10" class="hidebx" value="11:30" />
+                    <label for="hora10" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">11:30</span>
+                        </div>
+                    </label>
+
+
+
+                </div>
+
+
+
+                <!-- *************************** -->
+
+
+
+                <!-- <button type="submit" class="submit" id="btn_enviar">Reservar</button> -->
+
+                <a href="#confirmar" class="btn_reservar"><span>Reservar</span></a>
+
+            </form>
+
+
+
+        </section>
+        <!-- *********************************************** -->
+
+
+
+
+        <!--  ******* SECCION CONFIRMACION ******* -->
+
+
+        <section class="seccion_confirmacion" id="confirmar">
+
+
+            <img src="images/confirmacion_reserva.jpeg" alt="imagen de condiociones de reserva"
+                class="img_confirmacion">
+
+            <button type="submit" class="submit" id="btn_enviar">ACEPTAR</button>
+
+
+
         </section>
 
-        <section>
-            <h1>la mejor discoteca de Quito safaera</h1>
-        </section>
+
+        <!-- ************************************* -->
+
+
 
         <footer>
             <!-- &copy; Ricardo Cordovilla <a href=""></a> -->
         </footer>
-        
+
     </main>
 </body>
+
 </html>
