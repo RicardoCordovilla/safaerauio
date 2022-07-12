@@ -387,6 +387,10 @@ input[type="checkbox"]:checked+.lbl-check {
     background-color: var(--color-cyan);
 }
 
+.img_confirmacion{
+    height: auto;
+    width: 95vw;
+}
 
 @media screen and (min-width:800px) {
     .submit{
@@ -397,3 +401,5 @@ input[type="checkbox"]:checked+.lbl-check {
     }
     
 }
+
+
