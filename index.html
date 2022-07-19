@@ -20,7 +20,7 @@
 
 
         <!-- <a href="confirmacion.html">confirmacion</a> -->
-        
+
         <section>
             <h1>la mejor discoteca de Quito safaera</h1>
         </section>
@@ -33,15 +33,242 @@
 
 
 
+        <!-- <script type="text/javascript" src="https://form.jotform.com/jsform/221894112827660"></script> -->
+
+
+
+
+        <!-- *************** RESERVAS  ***************** -->
+        <section class="reservas">
+
+            <!-- <form class="form" name="reserva" method="post" data-netlify="true"> -->
+            <!-- <form class="form" action="https://formspree.io/f/mqknopbg" method="POST"> -->
+            <form class="form" name="Reservas">
+                <div class="title">Reserva</div>
+
+                <div class="input-container ic1">
+                    <input id="firstname" class="input" type="text" placeholder=" " name="Nombre" required pattern="[A-Z]{1,4} [a-z]"/>
+                    <div class="cut"></div>
+                    <label for="firstname" class="placeholder">Nombre</label>
+                </div>
+
+
+
+
+                <div class="input-container ic2">
+                    <input id="cedula" class="input" type="number" placeholder=" " name="Cedula" required />
+                    <div class="cut"></div>
+                    <label for="cedula" class="placeholder">Cédula</label>
+                </div>
+
+
+
+                <div class="section_cumple">
+                    <h4>¿Hay algún cumpleañero?</h4>
+                    <input type="checkbox" id="cumple" class="hidebx" name="Cumple" />
+                    <label for="cumple" class="lbl-check">
+                        <div class="display-box">
+                            <span class="tiempo">SI</span>
+                        </div>
+                    </label>
+                </div>
+
+
+
+                <div class="input-container ic2">
+                    <input id="celular" class="input" type="tel" placeholder=" " name="Celular" required />
+                    <div class="cut cut-short"></div>
+                    <label for="celular" class="placeholder">Celular</label>
+                </div>
+
+                <div class="input-container ic2">
+                    <input id="personas" class="input" type="number" placeholder=" " name="Personas" required />
+                    <div class="cut cut-short"></div>
+                    <label for="personas" class="placeholder">¿Cuántas personas vienen?</label>
+                </div>
+
+                <!-- ****** FECHA  *********** -->
+                <div class="input-container ic2">
+                    <input id="fecha" class="input" type="date" placeholder=" " name="Fecha" required />
+                    <div class="cut cut-short"></div>
+                    <label for="fecha" class="placeholder">Agenda</label>
+                </div>
+
+                <!-- ************************* -->
+                <!-- ****** HORAS  *********** -->
+
+
+
+                <h4>Hora</h4>
+                <div class="container">
+
+
+                    <!-- 7:00 -->
+                    <input type="radio" name="hora" id="hora1" class="hidebx" value="7:00" checked />
+                    <label for="hora1" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">19:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 7:30 -->
+                    <input type="radio" name="hora" id="hora2" class="hidebx" value="7:30" />
+                    <label for="hora2" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">19:30</span>
+                        </div>
+                    </label>
+
+                    <!-- 8:00 -->
+                    <input type="radio" name="hora" id="hora3" class="hidebx" value="8:00" />
+                    <label for="hora3" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">20:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 8:30 -->
+                    <input type="radio" name="hora" id="hora4" class="hidebx" value="8:30" />
+                    <label for="hora4" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">20:30</span>
+                        </div>
+                    </label>
+
+
+                    <!-- 9:00 -->
+                    <input type="radio" name="hora" id="hora5" class="hidebx" value="9:00" />
+                    <label for="hora5" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">21:00</span>
+                        </div>
+                    </label>
+
+
+                    <!-- 9:30 -->
+                    <input type="radio" name="hora" id="hora6" class="hidebx" value="9:30" />
+                    <label for="hora6" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">21:30</span>
+                        </div>
+                    </label>
+
+                    <!-- 10:00 -->
+                    <input type="radio" name="hora" id="hora7" class="hidebx" value="10:00" />
+                    <label for="hora7" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">22:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 10:30 -->
+                    <input type="radio" name="hora" id="hora8" class="hidebx" value="10:30" />
+                    <label for="hora8" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">22:30</span>
+                        </div>
+                    </label>
+
+                    <!-- 11:00 -->
+                    <input type="radio" name="hora" id="hora9" class="hidebx" value="11:00" />
+                    <label for="hora9" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">23:00</span>
+                        </div>
+                    </label>
+
+                    <!-- 11:30 -->
+                    <input type="radio" name="hora" id="hora10" class="hidebx" value="11:30" />
+                    <label for="hora10" class="lbl-radio">
+                        <div class="display-box">
+                            <span class="tiempo">23:30</span>
+                        </div>
+                    </label>
+
+
+
+                </div>
+
+
+
+                <!-- *************************** -->
+
+
+
+                <button type="submit" class="submit" id="btn_enviar">Reservar</button>
+
+
+            </form>
+
+
+
+        </section>
+        <!-- *********************************************** -->
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwxgM62rxYbekf2wZizihjnbCQp5-KHbQgtXdg9tm42z3Hp7gGxjS45IdxW3wuWill1/exec'
+            const form = document.forms['Reservas']
+            const btn_enviar = document.getElementById('btn_enviar')
+            const fecha = document.getElementById('fecha')
+            const cumple = document.getElementById('cumple')
+            const dia = document.createElement('input')
+            dia.name = "Dia"
+            dia.style = 'display:none'
+            const weekday = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+            let day
+
+
+
+
+            fecha.addEventListener('click', () => {
+                {maxDate:'01/01/2022'}
+            })
+            fecha.addEventListener('change', () => {
+
+                cumple.value = cumple.checked ? 'SI' : 'NO'
+                const d = new Date(fecha.value);
+                day = weekday[d.getDay()];
+                dia.value = day
+                form.append(dia)
+
+                // console.log(dia.value, dia.name, cumple.value)
+
+            })
+            form.addEventListener('submit', e => {
+                e.preventDefault()
+                console.log(dia.value, dia.name, cumple.value)
+                btn_enviar.disabled = true
+                btn_enviar.innerHTML = 'Un momento por favor..'
+                console.log('enviando')
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+
+                        console.log('Success!', response)
+
+                        btn_enviar.innerHTML = 'Gracias'
+                        setTimeout(() => {
+                            // alert('listo')
+                            window.location.href = "https://dynamic-panda-76b10c.netlify.app/confirmacion.html";
+                        }, 100)
+
+                    })
+
+            })
+
+        </script>
+
+
+
 
 
         <footer>
-            <!-- &copy; Ricardo Cordovilla <a href=""></a> -->
+            &copy; Ricardo Cordovilla <a href=""></a>
         </footer>
-
     </main>
-
-    <script type="text/javascript" src="https://form.jotform.com/jsform/221894112827660"></script>
 </body>
 
 </html>

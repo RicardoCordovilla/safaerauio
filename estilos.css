@@ -239,6 +239,7 @@ h1 {
     text-align: center;
     width: 80%;
     max-width: 400px;
+    
 }
 
 .submit:active {
@@ -363,29 +364,7 @@ input[type="checkbox"]:checked+.lbl-check {
     /* margin: auto; */
 }
 
-.btn_reservar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-decoration: none;
-    background-color: var(--color-cyan2);
-    border-radius: 1.2rem;
-    border: 0;
-    box-sizing: border-box;
-    color: var(--color-texto-principal);
-    cursor: pointer;
-    font-size: 18px;
-    height: 50px;
-    margin-top: 38px;
-    outline: 0;
-    text-align: center;
-    width: 70%;
-}
 
-
-.btn_reservar:active {
-    background-color: var(--color-cyan);
-}
 
 .img_confirmacion{
     height: auto;
