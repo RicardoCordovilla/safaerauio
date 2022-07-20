@@ -8,6 +8,8 @@
     <title>Reservas Safaera</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="logos/isotipo_safaera.png" type="image/x-icon">
+    <!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script> -->
+
 </head>
 
 <body>
@@ -47,7 +49,7 @@
                 <div class="title">Reserva</div>
 
                 <div class="input-container ic1">
-                    <input id="firstname" class="input" type="text" placeholder=" " name="Nombre" required pattern="[A-Z]{1,4} [a-z]"/>
+                    <input id="firstname" class="input" type="text" placeholder=" " name="Nombre" required />
                     <div class="cut"></div>
                     <label for="firstname" class="placeholder">Nombre</label>
                 </div>
@@ -206,53 +208,130 @@
         <!-- *********************************************** -->
 
 
-
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+            integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous">
+            </script>
+        <script src="./assets/js/jspdf.js">
+        </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
+            const weekday = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+            const getDay = (dateString) => {
+                const date = new Date(dateString);
+                day = weekday[date.getDay()];
+                return day
+            }
+            const getDateCurrent = () => {
+                let date = new Date().toJSON().slice(0, 10)
+                return date
+            }
+            const getDateAvailable = (dateString = "") => {
+                if (dateString) {
+                    /* Lo que es ubicar la fecha a la mas reciente y no antes, pues no hay eventos apartar en el pasado */
+                    let date = new Date(dateString)
+                    if (date.getTime() > new Date().getTime())
+                        dateString = date.toJSON().slice(0, 10)
+                    else
+                        dateString = new Date().toJSON().slice(0, 10)
+                } else {
+                    let date = new Date()
+                    dateString = date.toJSON().slice(0, 10)
+                }
+                let date = dateString ? new Date(dateString) : new Date();
+                let day = date.getDay();
+                let addDays = 0
+                switch (+day) {
+                    case 6: /* 'Domingo' */
+                        addDays = 4
+                        break;
+                    case 0: /* 'Lunes' */
+                        addDays = 3
+                        break;
+                    case 1: /* 'Martes' */
+                        addDays = 2
+                        break;
+                    case 2: /* 'Miercoles' */
+                        addDays = 1
+                        break;
+                    default:
+                        break;
+                }
+                date.setDate(date.getDate() + addDays)
+                return date.toJSON().slice(0, 10)
+            }
+            const newForm = (name) => {
+                let form = document.createElement('form')
+                form.name = name
+                return form
+            }
+            const newInput = (name, value) => {
+                const input = document.createElement('input')
+                input.name = name
+                input.value = value
+                return input
+            }
+            const appendForm = (formSend, props) => {
+                console.log('Agregar a ');
+                Object.keys(props).forEach(prop => {
+                    const input = props[prop]
+                    console.log({ n: prop, v: input.value });
+                    formSend.append(newInput(prop, input.value))
+                })
+                return formSend
+            }
+
+
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwxgM62rxYbekf2wZizihjnbCQp5-KHbQgtXdg9tm42z3Hp7gGxjS45IdxW3wuWill1/exec'
             const form = document.forms['Reservas']
-            const btn_enviar = document.getElementById('btn_enviar')
-            const fecha = document.getElementById('fecha')
-            const cumple = document.getElementById('cumple')
-            const dia = document.createElement('input')
-            dia.name = "Dia"
-            dia.style = 'display:none'
-            const weekday = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
-            let day
+            form.Fecha.value = getDateAvailable()
 
+            form.Fecha.addEventListener('change', (e) => {
+                if (e.target == form.Cumple) {
 
-
-
-            fecha.addEventListener('click', () => {
-                {maxDate:'01/01/2022'}
-            })
-            fecha.addEventListener('change', () => {
-
-                cumple.value = cumple.checked ? 'SI' : 'NO'
-                const d = new Date(fecha.value);
-                day = weekday[d.getDay()];
-                dia.value = day
-                form.append(dia)
-
-                // console.log(dia.value, dia.name, cumple.value)
-
+                } else if (e.target == form.Fecha) {
+                    switch (getDay(form.Fecha.value)) {
+                        case 'Jueves':
+                        case 'Viernes':
+                        case 'Sabado':
+                            break;
+                        default:
+                            form.fecha.value = getDateAvailable(form.fecha.value)
+                            alert('Solo dias Jueves, Viernes y Sabado ')
+                            return;
+                    }
+                }
             })
             form.addEventListener('submit', e => {
                 e.preventDefault()
-                console.log(dia.value, dia.name, cumple.value)
-                btn_enviar.disabled = true
-                btn_enviar.innerHTML = 'Un momento por favor..'
-                console.log('enviando')
-                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                let formSend = appendForm(
+                    newForm(name = "Reservas"),
+                    {
+                        Nombre: form.Nombre,
+                        Cedula: form.Cedula,
+                        Cumple: newInput('Cumple', 'NO'),
+                        Celular: form.Celular,
+                        Personas: form.Personas,
+                        Dia: newInput('Dia', getDay(form.Fecha.value)),
+                        Fecha: form.Fecha,
+                        hora: form.hora
+                    }
+                )
+
+                form.btn_enviar.disabled = true
+                form.btn_enviar.innerHTML = 'Un momento por favor..'
+
+                formSend.Cumple.value = form.Cumple.checked ? 'SI' : 'NO'
+
+                console.log(formSend);
+                fetch(scriptURL, { method: 'POST', body: new FormData(formSend) })
                     .then(response => {
 
                         console.log('Success!', response)
 
-                        btn_enviar.innerHTML = 'Gracias'
+                        form.btn_enviar.innerHTML = 'Gracias'
                         setTimeout(() => {
                             // alert('listo')
-                            window.location.href = "https://dynamic-panda-76b10c.netlify.app/confirmacion.html";
+                            window.location.href = "./confirmacion.html";
                         }, 100)
 
                     })
@@ -260,11 +339,7 @@
             })
 
         </script>
-
-
-
-
-
+        
         <footer>
             &copy; <a href="https://github.com/RicardoCordovilla/RickiDev">Ricardo Cordovilla </a>
         </footer>
