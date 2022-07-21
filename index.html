@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap"
+        rel="stylesheet">
     <title>Reservas Safaera</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="logos/isotipo_safaera.png" type="image/x-icon">
@@ -211,7 +216,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
             integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous">
             </script>
-        <script src="./assets/js/jspdf.js">
+        <script src="./assets/js/imgData.js">
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
@@ -301,9 +306,10 @@
                     }
                 }
             })
+            let formSend
             form.addEventListener('submit', e => {
                 e.preventDefault()
-                let formSend = appendForm(
+                formSend = appendForm(
                     newForm(name = "Reservas"),
                     {
                         Nombre: form.Nombre,
@@ -331,15 +337,61 @@
                         form.btn_enviar.innerHTML = 'Gracias'
                         setTimeout(() => {
                             // alert('listo')
-                            window.location.href = "./confirmacion.html";
+                            generarTicket()
+                            // window.location.href = "./confirmacion.html";
                         }, 100)
 
                     })
 
             })
+            let imgData = ''
 
+            function generarTicket() {
+                var doc = new jsPDF({
+                    // orientation: 'landscape',
+                    format: [340, 260]
+                })
+                let { Nombre, Cedula, Cumple, Celular, Personas, Dia, Fecha, hora } = formSend
+                let y = 30
+                doc.setDrawColor('#EDFEFF')
+                doc.setFillColor('#EDFEFF')
+                doc.rect(0, 0, 100, 200, 'F')
+                doc.setDrawColor('#F2D0D0')
+                doc.setFillColor('#F2D0D0')
+                doc.rect(0, 0, 100, 30, 'F')
+
+
+                doc.setTextColor('#112244')
+                doc.setFillColor('#112244')
+                doc.setDrawColor('#112244')
+                // 'S' [default] - stroke, 'F' - fill, and 'DF' (or 'FD') -
+                Object.keys(formSend).forEach(i => {
+                    const info = formSend[i]
+                    if (info.name == 'Cumple') return;
+                    doc.text(`${info.name}:`, 13, y += 9)
+                    doc.text(`${info.value}`, 50, y)
+                    doc.line(12, y + 2, 77, y + 2, [1, 1], 'DF')
+                })
+                doc.addImage(imgDataLogo, 'JPEG', 0, 0, 80, 30)
+
+                doc.setTextColor('#555555')
+                doc.setFontSize(10)
+                doc.text(`Terminos y condiciones lorem ipsum lorem ipsum lorem `, 2, y + 9)
+                doc.text(`Terminos y condiciones lorem ipsum lorem ipsum lorem `, 2, y + 15)
+                doc.save('ticket.pdf')
+
+            }
+            function fillInfo() {
+                form.Nombre.value = "Test"
+                form.Cedula.value = 102030
+                form.Cumple.checked = true
+                form.Celular.value = 0010203040
+                form.Personas.value = 10
+                form.hora.value = "11:00"
+            }
+            // fillInfo()
         </script>
-        
+
         <footer>
             &copy; <a href="https://github.com/RicardoCordovilla/RickiDev">Ricardo Cordovilla </a>
         </footer>
