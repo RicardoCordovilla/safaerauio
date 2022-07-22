@@ -398,7 +398,7 @@ input[type="checkbox"]:checked+.lbl-check {
 .img__principal .img__background {
     background-image: url('./assets/images/webp/carousel/DSC-3.webp');
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     /* object-fit: contain; */
     background-repeat: no-repeat;
     background-position: center;
@@ -414,7 +414,7 @@ input[type="checkbox"]:checked+.lbl-check {
 
 .img__principal .img__background__2 {
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
