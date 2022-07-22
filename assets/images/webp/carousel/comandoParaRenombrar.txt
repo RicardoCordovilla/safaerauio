@@ -1,0 +1,4 @@
+FOR /F "usebackq tokens=1,2,3 delims=() " %a IN (`dir /b`) DO ren "%a (%b)%c"  "%a-%b%c"
+salidas => 
+ren "DSC (69).webp"  "DSC-69.webp"
+ren "DSC (9).webp"  "DSC-9.webp"

@@ -11,8 +11,9 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap"
         rel="stylesheet">
     <title>Reservas Safaera</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="logos/isotipo_safaera.png" type="image/x-icon">
+    <link rel="stylesheet" href="estilos.css">
     <!-- <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script> -->
 
 </head>
@@ -20,12 +21,68 @@
 <body>
     <header>
         <figure class="figura">
-            <img src="logos/safaera_logo.png" alt="" class="logo">
         </figure>
     </header>
     <main>
+        <div id="img__principal" class="img__principal">
+            <section id="img__background" class="img__background"></section>
+            <section id="img__background__2" class="img__background__2 hidden"></section>
+            <section class="img__logo"></section>
+            <!-- <img src="logos/safaera_logo.png" alt="" class="logo"> -->
+            <div class="contenedor">
+                <!-- <h3 class="titulo">Safaera</h3> -->
+                <p class="descripcion">
+                    Vive la mejor experiencia de entretenimiento en Quito
+                    <br>Av. República y Mañosca, Plaza Mayor
 
+                </p>
+                <!-- <button role="button" class="boton"><i class="fas fa-play"></i>Reproducir</button> -->
+                <a href="#reservas" class="reservar">
+                    <button role="button" class="boton">
+                        Reservar
+                    </button>
 
+                    <div class="button__down">
+                        <i class='bx bx-chevron-down' ></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="img__carousel contenedor">
+            <div class="contenedor__titulo__controles">
+                <h3>Galeria</h3>
+                <div class="indicadores" id="indicadores">
+                    <button></button>
+                    <button></button>
+                </div>
+            </div>
+
+            <div class="img__carousel__principal">
+                <button id="flecha__izquierda" class="flecha__izquierda">
+                    <i class='bx bx-chevron-left' style='color:#ffaaff'></i>
+                </button>
+
+                <div class="contenedor__carousel">
+                    <div class="carousel">
+                        <!-- (.carousel__img>a[href="#"]>img[src="./assets/images/webp/carousel/DSC-$.webp"])*7 -->
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-1.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-2.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-3.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-4.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-5.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-6.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-7.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-8.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-9.webp" alt=""></a></div>
+                        <div class="carousel__img"><a href="#"><img src="./assets/images/webp/carousel/DSC-10.webp" alt=""></a></div>
+                    </div>
+                </div>
+
+                <button id="flecha__derecha" class="flecha__derecha">
+                    <i class='bx bx-chevron-right' style='color:#ffaaff'></i>
+                </button>
+            </div>
+        </div>
         <!-- <a href="confirmacion.html">confirmacion</a> -->
 
         <section>
@@ -46,7 +103,7 @@
 
 
         <!-- *************** RESERVAS  ***************** -->
-        <section class="reservas">
+        <section id="reservas" class="reservas">
 
             <!-- <form class="form" name="reserva" method="post" data-netlify="true"> -->
             <!-- <form class="form" action="https://formspree.io/f/mqknopbg" method="POST"> -->
@@ -216,8 +273,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
             integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous">
             </script>
-        <script src="./assets/js/imgData.js">
-        </script>
+        <script src="./assets/js/imgData.js">        </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             const weekday = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
@@ -235,13 +291,14 @@
                     /* Lo que es ubicar la fecha a la mas reciente y no antes, pues no hay eventos apartar en el pasado */
                     let date = new Date(dateString)
                     if (date.getTime() > new Date().getTime())
-                        dateString = date.toJSON().slice(0, 10)
+                        dateString = date
                     else
-                        dateString = new Date().toJSON().slice(0, 10)
+                        dateString = new Date()
                 } else {
                     let date = new Date()
-                    dateString = date.toJSON().slice(0, 10)
+                    dateString = date
                 }
+                dateString = dateString.toJSON().slice(0, 10)
                 let date = dateString ? new Date(dateString) : new Date();
                 let day = date.getDay();
                 let addDays = 0
@@ -394,8 +451,11 @@
 
         <footer>
             &copy; <a href="https://github.com/RicardoCordovilla/RickiDev">Ricardo Cordovilla </a>
+            &copy; <a href="https://github.com/hzvvictor">Victor Vargas </a>
         </footer>
     </main>
+    <script src="./assets/js/Carousel.js"></script>
+    <script src="./assets/js/bkgImageRandom.js"></script>
 </body>
 
 </html>
