@@ -399,10 +399,15 @@ input[type="checkbox"]:checked+.lbl-check {
     background-image: url('./assets/images/webp/carousel/DSC-3.webp');
     background-attachment: fixed;
     background-size: cover;
+    /* object-fit: contain; */
     background-repeat: no-repeat;
     background-position: center;
+    /* height: 50vh; */
+    /* height: 100vh; */
     width: 100%;
     height: 100%;
+    /* aspect-ratio: 1/1; */
+    /* height: 100%; */
     transition: background-image 0.5s, filter 0.3s;
     filter: opacity(0.7);
     position: absolute;
@@ -471,7 +476,7 @@ body .img__principal {
 
 .img__principal .descripcion {
     font-weight: normal;
-    font-size: 1.3em;
+    font-size: 2rem;
     line-height: 1.75em;
     /* max-width: 50%; */
     max-width: none;
