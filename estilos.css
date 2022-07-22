@@ -398,15 +398,15 @@ input[type="checkbox"]:checked+.lbl-check {
 .img__principal .img__background {
     background-image: url('./assets/images/webp/carousel/DSC-3.webp');
     background-attachment: fixed;
-    background-size: cover;
+    background-size: contain;
     /* object-fit: contain; */
     background-repeat: no-repeat;
     background-position: center;
     /* height: 50vh; */
-    /* height: 100vh; */
-    width: 100%;
-    height: 100%;
-    /* aspect-ratio: 1/1; */
+    height: 100vh;
+    /* width: 100%; */
+    /* height: 100%; */
+    aspect-ratio: 1/1;
     /* height: 100%; */
     transition: background-image 0.5s, filter 0.3s;
     filter: opacity(0.7);
@@ -415,11 +415,12 @@ input[type="checkbox"]:checked+.lbl-check {
 
 .img__principal .img__background__2 {
     background-attachment: fixed;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    height: 100vh;
+    aspect-ratio: 1;
     transition: background-image 0.5s, filter 0.5s;
     filter: opacity(0.7);
     position: absolute;
@@ -461,8 +462,9 @@ body .img__principal {
     width: 100%;
     margin-top: auto;
     position: absolute;
+    /* top:50%; */
     bottom: 0;
-    left: 0;
+    /* left: 0; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -476,8 +478,8 @@ body .img__principal {
 
 .img__principal .descripcion {
     font-weight: normal;
-    font-size: 2rem;
-    line-height: 1.75em;
+    font-size: 1.3rem;
+    line-height: 2rem;
     /* max-width: 50%; */
     max-width: none;
     margin-bottom: 1.25em;
